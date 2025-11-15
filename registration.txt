@@ -1,0 +1,45 @@
+package day02;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class registration {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+WebDriver d1=new ChromeDriver();
+d1.manage().window().maximize();
+//WebElement obj=d1.findElement(By.id("name"));
+d1.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+d1.findElement(By.id("name")).sendKeys("OM");
+d1.findElement(By.id("email")).sendKeys("omipatel288@gmail.com");
+d1.findElement(By.id("gender")).click();
+d1.findElement(By.xpath("//input[@id='name']//following::input[3]")).click();
+d1.findElement(By.id("mobile")).sendKeys("99999999");
+d1.findElement(By.id("dob")).sendKeys("99-99-9999");
+d1.findElement(By.id("subjects")).sendKeys("ABCD");
+d1.findElement(By.id("email")).sendKeys("omipatel288@gmail.com");
+d1.findElement(By.xpath("//input[@id='name']//following::input[8]")).click();
+d1.findElement(By.xpath("//input[@id='name']//following::input[9]")).click();
+d1.findElement(By.xpath("//input[@id='name']//following::input[10]")).click();
+d1.findElement(By.name("picture")).sendKeys("C:\\Users\\CDAC\\Pictures");
+d1.findElement(By.xpath("//textarea[@id=\'picture\']")).sendKeys("ABCD");
+
+WebElement state=d1.findElement(By.xpath("//select[@id='state'] "));
+Select sr=new Select(state);
+sr.selectByIndex(2);
+
+WebElement state1=d1.findElement(By.xpath("//select[@id='city'] "));
+Select sr1=new Select(state1);
+sr1.selectByIndex(2);
+System.out.println(state1.getText());
+//d1.findElement(By.xpath("//a[@href='login.php']")).click();
+
+//d1.findElement(By.id("email")).sendKeys("omipatel288@gmail.com");
+//d1.findElement(By.id("password")).sendKeys("ompatel123");
+
+	}
+}

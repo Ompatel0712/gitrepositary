@@ -1,0 +1,63 @@
+package com;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class openbrowser02 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d1=new ChromeDriver();
+		d1.get("https://practicetestautomation.com/practice-test-login/");
+		d1.manage().window().fullscreen();
+		
+		WebElement obj=d1.findElement(By.id("username"));
+		
+		
+		System.out.println(obj.getLocation());
+		System.out.println(obj.getSize());
+		System.out.println(obj.getTagName());
+		System.out.println(obj.getText());
+		
+		System.out.println(obj.isDisplayed());	
+		System.out.println(obj.isEnabled());
+		System.out.println(obj.isSelected());	
+		
+		
+		d1.findElement(By.id("username")).click();
+		d1.findElement(By.id("username")).sendKeys("student1");
+		Thread.sleep(2000);
+		d1.findElement(By.id("username")).clear();
+		d1.findElement(By.id("username")).sendKeys("student");
+		d1.findElement(By.id("password")).sendKeys("Password123");
+		
+		
+		WebElement message1=d1.findElement(By.id("error"));
+		WebElement message=d1.findElement(By.id("submit"));
+		message.click();
+		
+		
+		
+		obj.sendKeys("student1");
+		d1.findElement(By.id("password")).sendKeys("Password123");
+		d1.findElement(By.id("password")).clear();
+		
+		obj.clear();
+		Thread.sleep(2000);
+		System.out.println(message1.getText());
+		
+		
+		obj.sendKeys("student");
+		d1.findElement(By.id("password")).sendKeys("Password12");
+		message.click();
+		Thread.sleep(2000);
+		
+		System.out.println(message1.getText());
+	
+	
+		
+	}
+
+}
